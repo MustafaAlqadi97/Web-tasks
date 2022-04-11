@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap.min.css" rel="stylesheet"> 
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 " >
+                <label class="bg-info p-2 mt-5"> Choose your marital status</label>
+                <select class="form-select form-select-lg m-5 status " aria-label="Default select example">
+                    <option id="status" value="Single">Single</option>
+                    <option id="status" value="Married">Married</option>
+                    <option id="status" value="Divorced">Divorced</option>
+                    <option id="status" value="widower">widower</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" id="wives">
+            <div class="col-4 m-2 p-2 bg-light" id="wives" >
+                    <label>Enter the Number of the wives</label>
+                    <input id="wives" type="number" min="1" max="4">
+            </div>
+        </div>           
+        <div class="row" id="child"> 
+            <div class="col-4 m-2 p-2 bg-light" id="children" >
+                <label>Enter the Number of the children</label>
+                <input id="children" type="number" min="0" max="20">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 ">
+                <button > submit</button>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <script src="jquery.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+
+      <script>
+          
+            $(document).ready(function(){
+                $("#wives").hide();
+                $('#child').hide();
+                $("select.status").change(function(){
+                    var st = $(this).children("option:selected").val();
+                    //test
+                    //console.log(st);
+                    if (st == "Single") {
+                        $("#wives").hide();
+                        $('#child').hide();
+                    } else if (st == "Married" ) {
+                        $("#wives").show();
+                        $('#child').show();
+                    } else {
+                        $('#wives').hide();
+                        $('#child').show();
+                    }
+                    
+            });
+        });
+      </script>
+</body>
+</html>
